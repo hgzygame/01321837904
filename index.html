@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hgzy Hack</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 50px;
+            color: white;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            width: 90%;
+            max-width: 400px;
+            color: black;
+            position: relative;
+        }
+
+        h2 {
+            color: #333;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #e64a19;
+            transform: scale(1.1);
+        }
+
+        .loader {
+            display: none;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #message {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+            background: #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeInBounce 1s forwards;
+        }
+
+        @keyframes fadeInBounce {
+            0% { opacity: 0; transform: translateY(-50px) scale(0.5); }
+            50% { opacity: 1; transform: translateY(0) scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Hgzy 98% Hack</h2>
+        <button onclick="showMessage()">Confirm</button>
+        <div class="loader" id="loader"></div>
+        <p id="message">✅ আপনার Hgzy একাউন্টের সম্পন্ন টাকা <b>01321837904</b> এই নাম্বারে পাঠানো হয়ে গেছে।</p>
+    </div>
+
+    <script>
+        function showMessage() {
+            let loader = document.getElementById("loader");
+            let message = document.getElementById("message");
+
+            // লোডার দেখানো হবে
+            loader.style.display = "block";
+            message.style.display = "none";
+
+            // ২ সেকেন্ড পর লোডার বন্ধ হয়ে মেসেজ দেখাবে
+            setTimeout(() => {
+                loader.style.display = "none";
+                message.style.display = "block";
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
