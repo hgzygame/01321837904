@@ -57,7 +57,11 @@
 
             // সঠিক ইউজারনেম ও পাসওয়ার্ড
             if (username === "admin" && password === "1234") {
-                window.location.href = "signal.xlsx"; // ফাইল ব্রাউজারে খুলবে
+                var filePath = "signal.xlsx"; // ফাইল লোকেশন
+                var fileUrl = window.location.origin + "/" + filePath;
+
+                // মোবাইল ডিভাইসে WPS Office-এ খোলার চেষ্টা
+                window.location.href = "intent://" + fileUrl + "#Intent;action=android.intent.action.VIEW;type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;end;";
             } else {
                 errorMsg.innerText = "❌ ভুল ইউজারনেম বা পাসওয়ার্ড!";
             }
