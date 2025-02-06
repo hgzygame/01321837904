@@ -3,50 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>লগইন সিস্টেম</title>
+    <title>লগইন করুন</title>
     <style>
+        /* বডির স্টাইল */
         body {
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            margin: 0;
         }
+
+        /* লগইন বক্স */
         .login-container {
             background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             text-align: center;
-            border-radius: 5px;
+            border-radius: 10px;
+            width: 320px;
         }
-        input {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
+
+        /* ইনপুট ফিল্ড ডিজাইন */
+        .input-group {
+            display: flex;
+            align-items: center;
+            background: #f4f4f4;
             padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
         }
-        button {
+
+        .input-group input {
+            border: none;
+            background: none;
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-group i {
+            color: #888;
+            margin-right: 10px;
+        }
+
+        /* বাটন ডিজাইন */
+        .login-btn {
             background: #28a745;
             color: white;
-            padding: 10px;
+            padding: 12px;
             border: none;
             cursor: pointer;
             width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
         }
+
+        .login-btn:hover {
+            background: #218838;
+        }
+
+        /* এরর বার্তা */
         #error-msg {
             color: red;
             margin-top: 10px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s;
         }
     </style>
+
+    <!-- FontAwesome CDN (আইকন যুক্ত করার জন্য) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
     <div class="login-container">
         <h2>লগইন করুন</h2>
-        <input type="text" id="username" placeholder="ইউজারনেম লিখুন">
-        <input type="password" id="password" placeholder="পাসওয়ার্ড লিখুন">
-        <button onclick="login()">লগইন</button>
-        <p id="error-msg"></p>
+
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" placeholder="ইউজারনেম লিখুন">
+        </div>
+
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="পাসওয়ার্ড লিখুন">
+        </div>
+
+        <button class="login-btn" onclick="login()">লগইন</button>
+        <p id="error-msg">❌ ভুল ইউজারনেম বা পাসওয়ার্ড!</p>
     </div>
 
     <script>
@@ -55,17 +106,18 @@
             var password = document.getElementById("password").value;
             var errorMsg = document.getElementById("error-msg");
 
-            // সঠিক ইউজারনেম ও পাসওয়ার্ড
-            if (username === "admin" && password === "1234") {
+            // ইউজারনেম ও পাসওয়ার্ড চেক
+            if (username === "tanvir" && password === "tanvir2025") {
                 var filePath = "signal.xlsx"; // ফাইল লোকেশন
                 var fileUrl = window.location.origin + "/" + filePath;
 
                 // মোবাইল ডিভাইসে WPS Office-এ খোলার চেষ্টা
                 window.location.href = "intent://" + fileUrl + "#Intent;action=android.intent.action.VIEW;type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;end;";
             } else {
-                errorMsg.innerText = "❌ ভুল ইউজারনেম বা পাসওয়ার্ড!";
+                errorMsg.style.opacity = "1"; // এরর মেসেজ দেখানো হবে
             }
         }
     </script>
+
 </body>
 </html>
